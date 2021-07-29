@@ -1,0 +1,43 @@
+<div class="container py-3 border bg-light">
+ 
+  <div class="row mt-4 row__container animate__animated animate__bounce">
+    <div class="col-6 d-none d-sm-block my-5 px-5 animate__animated animate__zoomIn animate__slower">
+      <img class="wallet" src="/assets/img/login.png" alt="">
+    </div>
+    <div class="col-12 col-md-6 px-5 register__col my-3 animate__animated animate__zoomInDown animate__delay__1s animate__slower">
+      <div class="display-5 my-4">Login</div>
+      <div class="mx-auto w-100">
+        <div class="alert alert-danger animate__animated animate__swing animate__slow" *ngIf="error">
+          {{error}}
+          <div class="float-end alert-delete" (click)="removeAlert()"><i class="fa fa-times"></i></div>
+        </div>
+        <div class="alert alert-success " *ngIf="success">
+          {{success}}
+        </div>
+      </div>
+
+      <form (submit)="login()" [formGroup]="userForm">
+        <input type="email"  formControlName="email" name="email" class="form-control mt-2 my-3"  placeholder="email" [(ngModel)]="email">
+        <div *ngIf="f.email.touched && f.email.invalid">
+          <small class="text-danger" *ngIf="f.email.errors?.required">this field is required</small>
+          <small class="text-danger" *ngIf="f.email.errors?.email">please enter a valid email</small>
+        </div>
+
+        <input type="password"  formControlName="password" name="password" class="form-control mt-2 "placeholder="password" [(ngModel)]="password">
+        <div *ngIf="f.password.touched && f.password.invalid">
+          <small class="text-danger" *ngIf="f.password.errors?.required">this field is required</small>
+          <small class="text-danger" *ngIf="f.password.errors?.minlength">the minimum length for this field is {{userForm.get("password")?.errors?.minlength.requiredLength}} characters</small>
+        </div>
+
+          <div>
+
+          <button class="btn btn-success btn-block mt-3 my-5" type="submit" [disabled]="userForm.invalid">Login</button>
+        </div>
+
+      </form>
+      <div class="sign__up my-4">
+        <span class="text-muted">do not have account?</span> <a class="text-primary sign mx-2" (click)="logUp()">Sign up</a>
+      </div>
+    </div>
+     </div>
+</div>    

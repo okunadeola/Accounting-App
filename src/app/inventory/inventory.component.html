@@ -1,0 +1,157 @@
+<!-- Button trigger modal -->
+<!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Launch demo modal
+</button> -->
+
+<!-- Modal -->
+<!-- <div class="modal " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+
+
+<div class="container mb-5">
+  <button data-bs-toggle="modal" data-bs-target="#addInventory" class="btn btn-md btn-primary mt-5">
+    Add to Inventory
+  </button>
+</div>
+<div class="container my-5">
+    <form action="" class="w-50 p-5 card">
+      <div class="form-group">
+        <label for="">Date</label>
+        <input type="date" class="form-control" placeholder="Choose Date">
+      </div>
+      <div class="form-group">
+        <label for="">Inventory No</label>
+        <input type="number" class="form-control" placeholder="Enter inventory number">   
+      </div>
+      <div class="form-group">
+        <label for="">Items</label>
+        <input type="text" class="form-control" placeholder="Enter good name"> 
+      </div>
+      <div class="form-group">
+        <label for="">Unit Cost</label>
+        <input type="number" class="form-control" placeholder="#Enter good cost">
+      </div>
+      <div class="form-group">
+        <label for="">Quantity in Store</label>
+        <input type="text" class="form-control" placeholder="Enter good quantity"> 
+      </div>
+      <input class="btn btn-primary" type="submit" value="Save">
+    </form> 
+</div>
+
+
+<div class="container mt-5">
+  <div class="text-center text-muted">INVENTORY FOR THE MONTH OF MAY</div>
+  <table class="table table-striped">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Date</th>
+        <th scope="col">Inventory No</th>
+        <th scope="col">Items</th>
+        <th scope="col">Unit Cost</th>
+        <th scope="col">Qty in store</th>
+        <th scope="col">Total</th>
+        <th scope="col">Qty issue(S)</th>
+        <th scope="col">Qty Remaining</th>
+        <th scope="col">Total Balance</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">1/1/2021</th>
+        <td>101</td>
+        <td>Nike Shoe</td>
+        <td>$700000.00</td>
+        <td>12</td>
+        <td>$84,000.00</td>
+        <td>3</td>
+        <td>9</td>
+        <td>$63,000000000000.00</td>
+        <td><button class="btn btn-info btn-sm mr-1"><i class="fas fa-pen"></i></button><button class="btn btn-danger btn-sm"><i class="fas fa-times"></i></button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<!-- 
+<div style="width:100%;">
+  <canvas id="myChart" width="700" height="250" #mychart></canvas>
+</div> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- =====================inventory form modal============================ -->
+<div class="modal" id="addInventory" style="z-index: 100;" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Modal title</h5>
+        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+          <span>&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="" class="p-3">
+          <div class="form-group">
+            <label for="">Date</label>
+            <input type="date" class="form-control" placeholder="Choose Date">
+          </div>
+          <div class="form-group">
+            <label for="">Inventory No</label>
+            <input type="number" class="form-control" placeholder="Enter inventory number">   
+          </div>
+          <div class="form-group">
+            <label for="">Items</label>
+            <input type="text" class="form-control" placeholder="Enter good name"> 
+          </div>
+          <div class="form-group">
+            <label for="">Unit Cost</label>
+            <input type="number" class="form-control" placeholder="#Enter good cost">
+          </div>
+          <div class="form-group">
+            <label for="">Quantity in Store</label>
+            <input type="text" class="form-control" placeholder="Enter good quantity"> 
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+

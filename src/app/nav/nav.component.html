@@ -1,0 +1,136 @@
+<!-- <mat-drawer-container id="container"> -->
+  <!-- <mat-drawer #drawer class="sidenav w-25 w-md-75" mode="side" opened [disableClose]="true"> -->
+    <!-- COMPANY LOGO AND COMPANY NAME -->
+    <!-- <div class="side-nav-logo-div" align="center"> -->
+      <!-- <img class="side-nav-logo" src="/assets/for blue.png" alt=""> -->
+      <!-- <p class="text-white text-uppercase charity-name">Charity Ajo</p>
+    </div>
+    <mat-divider class="ml-2"></mat-divider> -->
+    <!-- BUTTONS FOR ROUTE -->
+    <!-- <div>
+      <button mat-button routerLink="/dashboard" class="nav-item active hr" routerLinkActive="active-side">
+        <i class="fas fa-fw fa-tachometer-alt"></i>
+        <span class="ml-2 mt-2 d-none d-md-inline">Dashboard</span>
+      </button>
+    </div -->
+
+    <!-- <div> -->
+      <!-- <button mat-button routerLink="/dashboard/inventory" class="nav-item hr" routerLinkActive="active-side">
+        <i class="fas fa-fw fa-bell"></i>
+        <span class="ml-2 mt-2 d-none d-md-inline">Inventory</span>
+      </button>
+    </div> -->
+
+    <!-- <div>
+      <button mat-button routerLink="/dashboard/sales" class="nav-item hr" routerLinkActive="active-side">
+        <i class="fas fa-fw fa-user"></i>
+        <span class="ml-2 mt-2 d-none d-md-inline">Profile</span>
+      </button>
+    </div>
+
+    <div>
+      <button mat-button routerLink="/dashboard/purchase" class="nav-item hr" routerLinkActive="active-side">
+        <i class="fab fa-cc-paypal"></i>
+        <span class="ml-2 mt-2 d-none d-md-inline">Payment</span>
+      </button>
+    </div>
+
+    <div>
+      <button color="white" mat-button class="nav-item hr" routerLinkActive="active-side">
+        <i class="fas fa-fw fa-sign-out-alt"></i>
+        <span class="ml-2 mt-2 d-none d-md-inline">Logout</span>
+      </button>
+    </div> -->
+  <!-- </mat-drawer> -->
+
+  <!-- <div class="sidenav-content">
+    <mat-toolbar class="shadow-sm bg-white position-fixed nav-z">
+      <mat-toolbar-row>
+        <div>
+          <button mat-icon-button>
+            <mat-icon style="color: #707070;">menu</mat-icon>
+          </button>
+        </div>
+        <span class="spacer"></span>
+        <!-- SEARCH FORM FOR PC'S -->
+          <!-- <form class="form-inline mr-auto ml-5 w-100 d-none d-md-inline">
+            <div class="form-group col">
+                <input type="text" class="form-control bg-light border-0 navbar-search"
+                    placeholder="Search for..." aria-label="Search" style="width: 370px;">
+                <div class="input-group-append">
+                    <button mat-button class="btn navbar-search-btn">
+                        <i class="fas fa-fw fa-search fa-sm" style="color: #fff;"></i>
+                    </button>
+                </div>
+            </div>
+        </form> -->
+
+        <!-- SEARCH FORM FOR MOBILE PHONE -->
+        
+          <!-- <button mat-icon-button class="d-inline d-md-none" id="btn-s">
+            <i class="fa fa-fw fa-search mt-2" style="color: #707070; font-size: 20px;" id="s-btn"></i>
+            <i class="fa fa-fw fa-times mt-2" style="color: #707070; font-size: 20px; display: none;" id="d-btn"></i>            
+          </button>
+          <form action="" class="form-inline position-absolute bg-white shadow-sm mr-auto outline-none animate__animated animated__fadeInUp" id="mobile-search" style="height: 60px; z-index: 1; display: none; margin-top: 100px;">
+            <div class="form-row ml-2"> -->
+              <!-- <div class="form-group col-9">
+                <input type="text" class="form-control bg-light border-0 navbar-search mt-2 border-rounded shadow-sm"
+                  placeholder="Search for..." aria-label="Search" style="width: 250px;">
+              </div>
+              <div class="form-group col-3">
+                <button mat-button class="btn ml-md-5 mt-2 mt-md-0 navbar-search-btn shadow-sm" style="background-color: #4E73DE;">
+                  <i class="fas fa-fw fa-search fa-sm" style="color: #fff;"></i>
+                </button>
+              </div>
+            </div>
+          </form>  -->
+          <!-- [matMenuTriggerFor]="notifications" -->
+          <!-- <button mat-icon-button routerLink="/dashboard/notifications">
+            <i class="fas fa-bell fa-fw mt-1 ml-3 ml-md-0" style="color: grey; font-size: 20px;"></i>
+          </button> -->
+          <!-- <mat-menu #notifications="matMenu" class="mt-3 notification-bar">
+            <p mat-menu-item>Hello World!</p>
+          </mat-menu> -->
+        <!-- </div> -->
+        
+        <!-- <div>
+          <button mat-icon-button [matMenuTriggerFor]="menu">
+            <mat-icon style="color: grey;">more_vert</mat-icon>
+          </button>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item>
+              <mat-icon>help</mat-icon>
+              <span>Help</span>
+            </button>
+            <button mat-menu-item disabled>
+              <mat-icon>delete</mat-icon>
+              <span>Delete Account</span>
+            </button>
+            <button mat-menu-item">
+              <mat-icon>logout</mat-icon>
+              <span>Log out</span>
+            </button>
+          </mat-menu>
+        </div> -->
+        <!-- <hr style="border: 1px solid #333;">
+        <mat-divider class="profile-divider"></mat-divider>
+        <div class="ml-2 ml-md-3">
+          <span class="text-muted dashboard-dis-name small">John Doe</span>
+        </div>
+        <div class="ml-3" [matMenuTriggerFor]="profile">
+          <!-- <img src="/assets/avatar3.png" class="rounded-circle dashboard-user-profile-pix" alt="user profile pix"> -->
+        <!-- </div>
+        <div class="profile-menu">
+          <mat-menu #profile="matMenu" class="mt-2">
+            <button mat-menu-item routerLink="/app/profile">
+              <!-- <mat-icon>per</mat-icon> -->
+              <!-- <i class="fas fa-user" style="color: #707070; font-size: 15px;"></i>
+              <span class="ml-2 text-muted" style="font-size: 15px;">Profile</span>
+            </button>
+          </mat-menu>
+        </div>
+      </mat-toolbar-row> -->
+    <!-- </mat-toolbar>    
+  </div> -->
+  <!-- <router-outlet></router-outlet>  -->
+<!-- </mat-drawer-container> -->

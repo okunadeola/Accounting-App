@@ -1,0 +1,90 @@
+#container{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.mat-drawer {
+    background-color: #4E73DE; 
+    color: #D8D8DA;
+}
+
+#container .mat-drawer {
+    /* min-width: 50px; */
+    width: 250px !important;
+}
+
+
+.nav-z {
+    z-index: 11;
+}
+
+
+.side-nav-logo-div {
+    margin-top: 50px;
+}
+
+.side-nav-logo {
+    height: 70px;
+    width: 100px;
+}
+
+.charity-name {
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: 600;
+    letter-spacing: 5px;
+}
+
+#container .mat-drawer .mat-button {
+    display: block;
+    width: 100%;
+    text-align: left;
+}
+
+.spacer {
+    flex: 1 1 auto;
+}
+
+
+.hr:hover {
+    color: #fff !important;
+}
+
+.active-side {
+    /* font-weight: bold; */
+    color: #fff;
+}
+
+.mat-divider {
+    background-color: rgb(206, 206, 206);
+    width: 92%;
+}
+
+.profile-divider {
+    height: 50px; width: 1px;
+}
+
+.dashboard-dis-name {
+    font-weight: lighter;
+}
+
+.dashboard-user-profile-pix {
+    height: 50px; 
+    width: 50px;
+}
+
+.navbar-search {
+    height: 40px;
+    border-radius: 3px 0 0 3px !important;
+    outline: transparent !important;
+}
+
+.navbar-search-btn {
+    height: 40px;
+    border-radius: 0 3px 3px 0 !important;
+    background-color: #4E73DE !important;
+}
+ 
+
