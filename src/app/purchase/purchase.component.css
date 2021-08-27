@@ -1,0 +1,13 @@
+.open{
+  display: block;
+}
+
+.close{
+  display: none;
+}
+
+.toggleBtn{
+  position: fixed;
+  right: 2rem;
+  top: 25px;
+}

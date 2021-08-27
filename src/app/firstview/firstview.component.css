@@ -3,3 +3,62 @@
   width:60vw;
   height:400px
 }
+
+.card__content{
+  max-height: 100px;
+}
+.card__content.inventory{
+  border-left: 5px solid rgba(255, 99, 132, 1);
+
+}
+.card__content.sales{
+  border-left: 5px solid rgba(54, 162, 235, 1);
+}
+.card__content.purchase{
+  border-left: 5px solid rgba(255, 206, 86, 1);
+}
+
+.salesHistory{
+  color: rgba(54, 162, 235, 1);
+  background-color: rgba(54, 162, 235, 0.2);
+  padding: 4px 8px;
+  border-radius: 20px;
+}
+
+.inventoryHistory{
+  color: rgba(255, 99, 132, 1);
+  background-color: rgba(255, 99, 132, 0.2);
+  padding: 4px 8px;
+  border-radius: 20px;
+}
+
+.purcahseHistory{
+  color: #FFCE56;
+  background-color: #f8f2df;
+  padding: 4px 8px;
+  border-radius: 20px;
+}
+.expensesHistory{
+  color: #333;
+  background-color: #ccc;
+  padding: 4px 8px;
+  border-radius: 20px;
+}
+.historyChild:nth-child(even){
+  background-color: rgb(241, 243, 243);
+  color: brown;
+}
+.transaction__history{
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.delete{
+  cursor: pointer;
+  color: darkslategray;
+}
+.delete:hover,
+.delete:focus{
+  transform: scale(1.1);
+  color: red;
+}

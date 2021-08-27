@@ -1,1 +1,167 @@
-<p>sales works!</p>
+ <!-- edit-form -->
+ <div *ngIf="edit" class="container my-5">
+  <div id="salesForm" class="w-50 p-5 card">
+    <div class="mx-auto w-100">
+      <div class="alert alert-danger animate__animated animate__zoomIn" *ngIf="error">
+        {{error}}
+        <div class="float-end alert-delete" (click)="removeAlert()"><i class="fa fa-times"></i></div>
+      </div>
+      <div class="alert alert-success " *ngIf="success">
+        {{success}}
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="">Date</label>
+      <input type="date" [(ngModel)]="editSalesDate" class="form-control" placeholder="Choose Date">
+    </div>
+    <div class="form-group">
+      <label for="">Sales No</label>
+      <input type="number" disabled [(ngModel)]="editSalesNumber"  class="form-control" placeholder="Enter sales number">   
+    </div>
+    <div class="form-group">
+      <label for="">Customer</label>
+      <input type="text" [(ngModel)]="editSalesCustomer"  class="form-control" placeholder="Enter Customer name"> 
+    </div>
+    <div class="form-group">
+      <label for="">Item(s) Bought</label>
+      <select [(ngModel)]="editSalesItem" class="form-control">
+        <option *ngFor="let good of goodsInInventory; let i = index" [value]="good">{{good}}</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="">Quantity Bought</label>
+      <input type="number" [(ngModel)]="editSalesQtyBought" class="form-control" placeholder="#Enter quantity sold">
+    </div>
+    <div class="form-group">
+      <label for="">Sales Price</label>
+      <input type="number" [(ngModel)]="editSalesPrice" class="form-control" placeholder="Enter sales unit price"> 
+    </div>
+    <div class="form-group">
+      <label for="">Discount Allowed</label>
+      <input type="number" [(ngModel)]="editSalesDiscount" class="form-control" placeholder="Enter discount allowed"> 
+    </div>
+    <div class="row">
+      <div class="col-8">
+        <input class="btn btn-info btn-block" (click)="editSales()" type="submit" value="Edit">
+      </div>
+      <div class="col-4">
+        <input class="btn btn-success btn-block" (click)="cancelEdit()" type="submit" value="Cancel">
+      </div>
+    </div>
+  </div> 
+</div>
+<!-- edit-form-end -->
+
+
+
+
+
+
+<!-- toggle-button -->
+<div class="container mb-5">
+  <button [disabled]="edit" (click)="toggleAddSales()" data-bs-toggle="modal" data-bs-target="#addSales" class="btn btn-md btn-primary mt-5 toggleBtn">
+    {{toggleSalesName.toLowerCase()}}
+  </button>
+</div>
+<!-- toggle-button-end -->
+
+
+
+
+
+<!-- add-sales -->
+<div class="container my-5">
+    <div id="salesForm" class="w-50 p-5 card close align-center">
+      <div class="mx-auto w-100">
+        <div class="alert alert-danger animate__animated animate__zoomIn" *ngIf="error">
+          {{error}}
+          <div class="float-end alert-delete" (click)="removeAlert()"><i class="fa fa-times"></i></div>
+        </div>
+        <div class="alert alert-success " *ngIf="success">
+          {{success}}
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="">Date</label>
+        <input type="date" [(ngModel)]="salesDate" class="form-control" placeholder="Choose Date">
+      </div>
+      <div class="form-group">
+        <label for="">Sales No</label>
+        <input type="number" [(ngModel)]="salesNumber"  class="form-control" placeholder="Enter sales number">   
+      </div>
+      <div class="form-group">
+        <label for="">Customer</label>
+        <input type="text" [(ngModel)]="salesCustomer"  class="form-control" placeholder="Enter Customer name"> 
+      </div>
+      <div class="form-group">
+        <label for="">Item(s) Bought</label>
+        <select [(ngModel)]="salesItem" class="form-control">
+          <option *ngFor="let good of goodsInInventory; let i = index" [value]="good">{{good}}</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="">Quantity Bought</label>
+        <input type="number" [(ngModel)]="salesQtyBought" class="form-control" placeholder="#Enter quantity bought">
+      </div>
+      <div class="form-group">
+        <label for="">Sales Price(Unit)</label>
+        <input type="number" [(ngModel)]="salesPrice" class="form-control" placeholder="Enter sales unit price"> 
+      </div>
+      <div class="form-group">
+        <label for="">Discount Allowed</label>
+        <input type="number" [(ngModel)]="salesDiscount" class="form-control" placeholder="Enter discount Allowed"> 
+      </div>
+      <input class="btn btn-primary" (click)="saveSales()" type="submit" value="Save">
+    </div> 
+</div>
+<!-- add-sales-- -->
+
+
+
+
+
+
+
+<!-- sales-table-------- -->
+<div class="container mt-5 mb-3">
+  <div class="text-center text-muted">SALES FOR THE MONTH OF MAY</div>
+  <table class="table table-striped shadow">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Date</th>
+        <th scope="col">Sales No</th>
+        <th scope="col">Customer</th>
+        <th scope="col">Item(s) Bought</th>
+        <th scope="col">Qty Bought</th>
+        <th scope="col">Sales Price</th>
+        <th scope="col">Discount Allowed</th>
+        <th scope="col">Total</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let data of sales; let i = index">
+        <th scope="row">{{data.date}}</th>
+        <td>{{data.salesNumber}}</td>
+        <td>{{data.customer}}</td>
+        <td>{{data.itemName}}</td>
+        <td>{{data.quantitySold}}</td>
+        <td>{{data.unitCost | currency:'NGN':'symbol-narrow'}}</td>
+        <td>{{data.discount | currency:'NGN':'symbol-narrow'}}</td>
+        <td>{{(data.quantitySold * data.unitCost -data.discount)| currency:'NGN':'symbol-narrow'}}</td>
+        <td><button [disabled]="editBttn" (click)="editSalesButton(data.salesNumber)" class="btn btn-info btn-sm mr-1"><i class="fas fa-pen"></i></button><button (click)="deleteSales(data.salesNumber, i)" class="btn btn-danger btn-sm"><i class="fas fa-times"></i></button></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Total Sales</td>
+        <td></td>
+        <th></th>
+        <td></td>
+        <th>{{salesTotal | currency:'NGN':'symbol-narrow'}}</th>
+        <th></th>
+    </tbody>
+  </table>
+</div>
+<!-- sales-table-end---- -->

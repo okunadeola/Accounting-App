@@ -1,28 +1,28 @@
 <div class="container-fluid mt-3">
   <div class="container">
     <div class="row">
-      <div class="col-3">
-        <div class="card shadow">
-          <div class="card-title">Inventory</div>
+      <div class="col-6 col-md-3 mb-2">
+        <div class="card shadow card__content inventory">
+          <div class="card-title m-2">Inventory</div>
           <div class="card-body bg-light">
-            200
+            Starting Inventory- <b>{{startingInventory | currency:'NGN':'symbol-narrow'}}</b>
           </div>
         </div>
       </div>
-      <div class="col-3">
-        <div class="card shadow">
-          <div class="card-title">Sales</div>
+      <div class="col-6 col-md-3">
+        <div class="card shadow card__content sales">
+          <div class="card-title m-2">Sales</div>
           <div class="card-body bg-light">
-            200
+            sales this Month- <b>{{sales | currency:'NGN':'symbol-narrow'}}</b>
           </div>
         </div>
       </div>
-      <div class="col-3">
-        <div class="card shadow">
-          <div class="card-title">Purchase</div>
-          <div class="card-body bg-light">
-            200
-          </div>
+      <div class="col-6 col-md-3">
+        <div class="card shadow card__content purchase">
+          <div class="card-title m-2">Purchase</div>
+            <div class="card-body bg-light">
+              Purchase- <b>{{purchase | currency:'NGN':'symbol-narrow'}}</b>
+            </div>
         </div>
       </div>
     </div>
@@ -38,15 +38,36 @@
 </div>
 
 <div class="container my-5 ml-2">
-  <div class="transaction__history card">
-    <div class="card-title">
-      Transaction History 
+  <div class="card">
+    <div class="card-title m-0 pt-3">
+      <b class="pl-2 pt-3 m-0">Transaction History</b> 
       <hr>
-      <div class="card-body">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Non itaque quo totam quod necessitatibus at recusandae fugiat odit eaque nulla natus qui doloremque molestiae dolor, sit consequuntur repudiandae! Ducimus, atque.
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Earum odit quos perspiciatis enim deserunt veritatis nisi illo natus, quis repellat voluptatem laborum id ullam provident quae totam exercitationem maxime ex.
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sed reprehenderit eos blanditiis, reiciendis dolores corrupti quod ipsam illo facilis neque aperiam sequi nam, ipsum fugit labore est asperiores veniam error.
+    </div>
+      <div class="transaction__history">
+        <div class="card-body historyChild" *ngFor="let history of transactionHistory; let i = index;">
+          <div *ngIf=" history.title === 'Sales Created' ">
+            <div class="text-muted"><span class="salesHistory">{{history.title}}</span>  You sold {{history.quantitySold}} {{history.itemName}} {{history.quantitySold > 1 ? "Items" : "Item"}} {{(history.time | timeago).includes("second") ? "Just now" : history.time | timeago }}
+              -{{history.date}}
+              <div class="float-end alert-delete delete" (click)="deleteHistory(i)"><i class="fa fa-times"></i></div>
+            </div>
+          </div>
+          <div *ngIf=" history.title === 'Inventory Created' ">
+            <div class="text-muted"><span class="inventoryHistory">{{history.title}}</span> You added  {{history.quantity}} {{history.itemName}} to your inventory list {{(history.time | timeago).includes("second") ? "Just now" : history.time | timeago }} -{{history.date}}
+              <div class="float-end alert-delete delete" (click)="deleteHistory(i)"><i class="fa fa-times"></i></div>
+              </div>
+          </div>
+          <div *ngIf=" history.title === 'Purchase Created' ">
+            <div class="text-muted"><span class="purcahseHistory">{{history.title}}</span> You purchased {{history.quantityPurchased}}  {{history.itemName}} from {{history.supplier}} {{(history.time | timeago).includes("second") ? "Just now" : history.time | timeago }} -{{history.date}}
+              <div class="float-end alert-delete delete" (click)="deleteHistory(i)"><i class="fa fa-times"></i></div>
+              </div>
+          </div>
+          <div *ngIf=" history.title === 'Expenses Created' ">
+            <div class="text-muted"><span class="expensesHistory">{{history.title}}</span> You purchased {{history.description}} with {{history.amountPaid | currency:'NGN':'symbol-narrow'}}  {{history.outstandingPayment ? 'and outstanding payment of ' + (history.outstandingPayment | currency:'NGN':'symbol-narrow') : '' }} {{history.prepaid ? 'and prepaid payment of ' + (history.prepaid | currency:'NGN':'symbol-narrow') : ''}} <span class="expensesHistory">Mode of payment ({{history.paymentType}})</span> {{(history.time | timeago).includes("second") ? "Just now" : history.time | timeago }} -{{history.date}}
+              <div class="float-end alert-delete delete" (click)="deleteHistory(i)"><i class="fa fa-times"></i></div>
+              </div>
+          </div>
       </div>
     </div>
   </div>
-</div>
+  
+</div>  

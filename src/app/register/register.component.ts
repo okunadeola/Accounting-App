@@ -232,4 +232,7 @@ export class RegisterComponent implements OnInit {
   logUp() {
     this.route.navigate(['/login']);
   }
+  home(){
+    this.route.navigate(['/']);
+  }
 }

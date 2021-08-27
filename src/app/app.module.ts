@@ -23,6 +23,9 @@ import { MatListModule } from '@angular/material/list';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
+import { InventoryAppComponent } from './inventory-app/inventory-app.component';
+import { TimeagoModule } from 'ngx-timeago';
+import { NotfoundComponent } from './notfound/notfound.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +42,8 @@ import { LoginComponent } from './login/login.component';
     MainViewComponent,
     RegisterComponent,
     LoginComponent,
+    InventoryAppComponent,
+    NotfoundComponent,
   ],
   imports: [
     BrowserModule,
@@ -53,6 +58,7 @@ import { LoginComponent } from './login/login.component';
     MatIconModule,
     MatListModule,
     NgbModule,
+    TimeagoModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

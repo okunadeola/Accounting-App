@@ -1,1 +1,175 @@
-<p>expenses works!</p>
+ <!-- edit-form -->
+ <div *ngIf="edit" class="container my-5">
+  <div id="expensesForm" class="w-50 p-5 card">
+    <div class="mx-auto w-100">
+      <div class="alert alert-danger animate__animated animate__zoomIn" *ngIf="error">
+        {{error}}
+        <div class="float-end alert-delete" (click)="removeAlert()"><i class="fa fa-times"></i></div>
+      </div>
+      <div class="alert alert-success " *ngIf="success">
+        {{success}}
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="">Date</label>
+      <input type="date" [(ngModel)]="editExpensesDate" class="form-control" placeholder="Choose Date">
+    </div>
+    <div class="form-group">
+      <label for="">Expenses Number</label>
+      <input type="number" disabled [(ngModel)]="editExpensesNumber"  class="form-control" placeholder="Enter expenses number">   
+    </div>
+    <div class="form-group">
+      <label for="">Description</label>
+      <input type="text" [(ngModel)]="editDescription"  class="form-control" placeholder="Enter desription"> 
+    </div>
+    <div class="form-group">
+      <label for="">Amount Paid</label>
+      <input type="text" [(ngModel)]="editAmountPaid"  class="form-control" placeholder="Enter amount paid"> 
+    </div>
+    <div class="form-group">
+      <label for="">Payment Type</label>
+      <select [(ngModel)]="editPaymentType" class="form-control">
+        <option value="Bank">Bank</option>
+        <option value="Cheque">Cheque</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="">Outstanding Payment</label>
+      <input type="number" [(ngModel)]="editOutstandingPayment" class="form-control" placeholder="Enter outstanding payment amount"> 
+    </div>
+    <div class="form-group">
+      <label for="">Prepaid</label>
+      <input type="number" [(ngModel)]="editPrepaid" class="form-control" placeholder="Enter Prepaid amount"> 
+    </div>
+    <div class="row">
+      <div class="col-8">
+        <input class="btn btn-info btn-block" (click)="editExpenses()" type="submit" value="Edit">
+      </div>
+      <div class="col-4">
+        <input class="btn btn-success btn-block" (click)="cancelEdit()" type="submit" value="Cancel">
+      </div>
+    </div>
+  </div> 
+</div>
+<!-- edit-form-end -->
+
+
+
+
+
+
+<!-- toggle-button -->
+<div class="container mb-5">
+  <button [disabled]="edit" (click)="toggleAddExpenses()" data-bs-toggle="modal" data-bs-target="#addExpenses" class="btn btn-md btn-primary mt-5 toggleBtn">
+    {{toggleExpensesName.toLowerCase()}}
+  </button>
+</div>
+<!-- toggle-button-end -->
+
+
+
+
+
+<!-- add-expenses -->
+<div class="container my-5">
+    <div id="expensesForm" class="w-50 p-5 card close align-center">
+      <div class="mx-auto w-100">
+        <div class="alert alert-danger animate__animated animate__zoomIn" *ngIf="error">
+          {{error}}
+          <div class="float-end alert-delete" (click)="removeAlert()"><i class="fa fa-times"></i></div>
+        </div>
+        <div class="alert alert-success " *ngIf="success">
+          {{success}}
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="">Date</label>
+        <input type="date" [(ngModel)]="expensesDate" class="form-control" placeholder="Choose Date">
+      </div>
+      <div class="form-group">
+        <label for="">Expenses Number</label>
+        <input type="number" [(ngModel)]="expensesNumber"  class="form-control" placeholder="Enter expenses number">   
+      </div>
+      <div class="form-group">
+        <label for="">Description</label>
+        <input type="text" [(ngModel)]="desription"  class="form-control" placeholder="Enter description"> 
+      </div>
+      <div class="form-group">
+        <label for="">Amount Paid</label>
+        <input type="number" [(ngModel)]="amountPaid"  class="form-control" placeholder="Enter amount paid"> 
+      </div>
+      <div class="form-group">
+        <label for="">Payment Type</label>
+        <select [(ngModel)]="paymentType" class="form-control">
+          <option value="Bank">Bank</option>
+          <option value="Cheque">Cheque</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="">Outstanding Payment</label>
+        <input type="number" [(ngModel)]="outstandingPayment" class="form-control" placeholder="Enter outstanding payment amount"> 
+      </div>
+      <div class="form-group">
+        <label for="">Prepaid</label>
+        <input type="number" [(ngModel)]="prepaid" class="form-control" placeholder="Enter Prepaid amount"> 
+      </div>
+      <input class="btn btn-primary" (click)="saveExpenses()" type="submit" value="Save">
+    </div> 
+</div>
+<!-- add-sales-- -->
+
+
+
+
+
+
+
+<!-- sales-table-------- -->
+<div class="container mt-5 mb-3">
+  <div class="text-center text-muted">EXPENSES FOR THE MONTH OF MAY</div>
+  <table class="table table-striped shadow">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Date</th>
+        <th scope="col">Expenses No</th>
+        <th scope="col">Description</th>
+        <th scope="col">Amount Paid</th>
+        <th scope="col">Payment Type</th>
+        <th scope="col">Outstanding Payment</th>
+        <th scope="col">Prepaid</th>
+        <th scope="col">Total</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let data of expenses; let i = index">
+        <th scope="row">{{data.date}}</th>
+        <td>{{data.expensesNumber}}</td>
+        <td>{{data.description}}</td>
+        <td>{{data.amountPaid | currency:'NGN':'symbol-narrow'}}</td>
+        <td>{{data.paymentType}}</td>
+        <td>{{data.outstandingPayment | currency:'NGN':'symbol-narrow'}}</td>
+        <td>{{data.prepaid | currency:'NGN':'symbol-narrow'}}</td>
+        <td *ngIf="data.outstandingPayment">{{(data.amountPaid + data.outstandingPayment)| currency:'NGN':'symbol-narrow'}}</td>
+
+        <td *ngIf="data.prepaid">{{(data.amountPaid - data.prepaid)| currency:'NGN':'symbol-narrow'}}</td>
+      
+        <td *ngIf="data.prepaid == 0 && data.outstandingPayment == 0">{{data.amountPaid | currency:'NGN':'symbol-narrow'}}</td>
+      
+        <td><button [disabled]="editBttn" (click)="editExpensesButton(data.expensesNumber)" class="btn btn-info btn-sm mr-1"><i class="fas fa-pen"></i></button><button (click)="deleteExpenses(data.expensesNumber, i)" class="btn btn-danger btn-sm"><i class="fas fa-times"></i></button></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Total Expenses</td>
+        <td></td>
+        <th></th>
+        <td></td>
+        <th>{{expensesTotal | currency:'NGN':'symbol-narrow'}}</th>
+        <th></th>
+    </tbody>
+  </table>
+</div>
+<!-- sales-table-end---- -->
+

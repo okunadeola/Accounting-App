@@ -1,1 +1,163 @@
-<p>purchase works!</p>
+ <!-- edit-form -->
+ <div *ngIf="edit" class="container my-5">
+  <div id="purchaseForm" class="w-50 p-5 card">
+    <div class="mx-auto w-100">
+      <div class="alert alert-danger animate__animated animate__zoomIn" *ngIf="error">
+        {{error}}
+        <div class="float-end alert-delete" (click)="removeAlert()"><i class="fa fa-times"></i></div>
+      </div>
+      <div class="alert alert-success " *ngIf="success">
+        {{success}}
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="">Date</label>
+      <input type="date" [(ngModel)]="editPurchaseDate" class="form-control" placeholder="Choose Date">
+    </div>
+    <div class="form-group">
+      <label for="">Purchase No</label>
+      <input type="number" disabled [(ngModel)]="editPurchaseNumber"  class="form-control" placeholder="Enter purchase number">   
+    </div>
+    <div class="form-group">
+      <label for="">Supplier</label>
+      <input type="text" [(ngModel)]="editSupplier"  class="form-control" placeholder="Enter supplier name"> 
+    </div>
+    <div class="form-group">
+      <label for="">Item(s) Purchase</label>
+      <input type="text" [(ngModel)]="editPurchaseItem"  class="form-control" placeholder="Enter item name"> 
+    </div>
+    <div class="form-group">
+      <label for="">Quantity Bought</label>
+      <input type="number" [(ngModel)]="editPurchaseQtyBought" class="form-control" placeholder="#Enter quantity sold">
+    </div>
+    <div class="form-group">
+      <label for="">Unit Cost</label>
+      <input type="number" [(ngModel)]="editUnitCost" class="form-control" placeholder="Enter purchase unit cost"> 
+    </div>
+    <div class="form-group">
+      <label for="">Discount Received</label>
+      <input type="number" [(ngModel)]="editDiscountReceived" class="form-control" placeholder="Enter discount received"> 
+    </div>
+    <div class="row">
+      <div class="col-8">
+        <input class="btn btn-info btn-block" (click)="editPurchase()" type="submit" value="Edit">
+      </div>
+      <div class="col-4">
+        <input class="btn btn-success btn-block" (click)="cancelEdit()" type="submit" value="Cancel">
+      </div>
+    </div>
+  </div> 
+</div>
+<!-- edit-form-end -->
+
+
+
+
+
+
+<!-- toggle-button -->
+<div class="container mb-5">
+  <button [disabled]="edit" (click)="toggleAddPurchase()" data-bs-toggle="modal" data-bs-target="#addPurchase" class="btn btn-md btn-primary mt-5 toggleBtn">
+    {{togglePurchaseName.toLowerCase()}}
+  </button>
+</div>
+<!-- toggle-button-end -->
+
+
+
+
+
+<!-- add-purchase -->
+<div class="container my-5">
+    <div id="purchaseForm" class="w-50 p-5 card close align-center">
+      <div class="mx-auto w-100">
+        <div class="alert alert-danger animate__animated animate__zoomIn" *ngIf="error">
+          {{error}}
+          <div class="float-end alert-delete" (click)="removeAlert()"><i class="fa fa-times"></i></div>
+        </div>
+        <div class="alert alert-success " *ngIf="success">
+          {{success}}
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="">Date</label>
+        <input type="date" [(ngModel)]="purchaseDate" class="form-control" placeholder="Choose Date">
+      </div>
+      <div class="form-group">
+        <label for="">Purchase No</label>
+        <input type="number" [(ngModel)]="purchaseNumber"  class="form-control" placeholder="Enter purchase number">   
+      </div>
+      <div class="form-group">
+        <label for="">Supplier</label>
+        <input type="text" [(ngModel)]="supplier"  class="form-control" placeholder="Enter supplier name"> 
+      </div>
+      <div class="form-group">
+        <label for="">Item(s) Purchase</label>
+        <input type="text" [(ngModel)]="purchaseItem"  class="form-control" placeholder="Enter item name"> 
+      </div>
+      <div class="form-group">
+        <label for="">Quantity Bought</label>
+        <input type="number" [(ngModel)]="purchaseQtyBought" class="form-control" placeholder="#Enter quantity bought">
+      </div>
+      <div class="form-group">
+        <label for="">Unit Cost</label>
+        <input type="number" [(ngModel)]="unitCost" class="form-control" placeholder="Enter unit cost"> 
+      </div>
+      <div class="form-group">
+        <label for="">Discount Received</label>
+        <input type="number" [(ngModel)]="purchaseDiscount" class="form-control" placeholder="Enter discount received"> 
+      </div>
+      <input class="btn btn-primary" (click)="savePurchase()" type="submit" value="Save">
+    </div> 
+</div>
+<!-- add-sales-- -->
+
+
+
+
+
+
+
+<!-- sales-table-------- -->
+<div class="container mt-5 mb-3">
+  <div class="text-center text-muted">SALES FOR THE MONTH OF MAY</div>
+  <table class="table table-striped shadow">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Date</th>
+        <th scope="col">Purchase No</th>
+        <th scope="col">Supplier</th>
+        <th scope="col">Item(s) Purchase</th>
+        <th scope="col">Qty Bought</th>
+        <th scope="col">Unit Cost</th>
+        <th scope="col">Discount Received</th>
+        <th scope="col">Total Cost</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let data of purchase; let i = index">
+        <th scope="row">{{data.date}}</th>
+        <td>{{data.purchaseNumber}}</td>
+        <td>{{data.supplier}}</td>
+        <td>{{data.itemName}}</td>
+        <td>{{data.quantityPurchased}}</td>
+        <td>{{data.unitCost | currency:'NGN':'symbol-narrow'}}</td>
+        <td>{{data.discount | currency:'NGN':'symbol-narrow'}}</td>
+        <td>{{(data.quantityPurchased * data.unitCost -data.discount)| currency:'NGN':'symbol-narrow'}}</td>
+        <td><button [disabled]="editBttn" (click)="editPurchaseButton(data.purchaseNumber)" class="btn btn-info btn-sm mr-1"><i class="fas fa-pen"></i></button><button (click)="deletePurchase(data.purchaseNumber, i)" class="btn btn-danger btn-sm"><i class="fas fa-times"></i></button></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Total Purchase</td>
+        <td></td>
+        <th></th>
+        <td></td>
+        <th>{{purchaseTotal | currency:'NGN':'symbol-narrow'}}</th>
+        <th></th>
+    </tbody>
+  </table>
+</div>
+<!-- sales-table-end---- -->

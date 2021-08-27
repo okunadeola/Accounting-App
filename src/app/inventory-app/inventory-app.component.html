@@ -1,0 +1,149 @@
+ <!-- edit-form -->
+<div *ngIf="edit" class="container my-5">
+  <div id="inventoryForm" class="w-50 p-5 card">
+    <div class="mx-auto w-100">
+      <div class="alert alert-danger animate__animated animate__zoomIn" *ngIf="error">
+        {{error}}
+        <div class="float-end alert-delete" (click)="removeAlert()"><i class="fa fa-times"></i></div>
+      </div>
+      <div class="alert alert-success " *ngIf="success">
+        {{success}}
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="">Date</label>
+      <input type="date" [(ngModel)]="editinventoryDate" class="form-control" placeholder="Choose Date">
+    </div>
+    <div class="form-group">
+      <label for="">Inventory No</label>
+      <input type="number" disabled [(ngModel)]="editinventoryNumber"  class="form-control" placeholder="Enter inventory number">   
+    </div>
+    <div class="form-group">
+      <label for="">Items</label>
+      <input type="text" [(ngModel)]="editinventoryGood"  class="form-control" placeholder="Enter good name"> 
+    </div>
+    <div class="form-group">
+      <label for="">Unit Cost</label>
+      <input type="number" [(ngModel)]="editinventoryCost" class="form-control" placeholder="#Enter good cost">
+    </div>
+    <div class="form-group">
+      <label for="">Quantity in Store</label>
+      <input type="number" [(ngModel)]="editinventoryQty" class="form-control" placeholder="Enter good quantity"> 
+    </div>
+    <div class="row">
+      <div class="col-8">
+        <input class="btn btn-info btn-block" (click)="editInventory()" type="submit" value="Edit">
+      </div>
+      <div class="col-4">
+        <input class="btn btn-success btn-block" (click)="cancelEdit()" type="submit" value="Cancel">
+      </div>
+    </div>
+  </div> 
+</div>
+<!-- edit-form-end -->
+
+
+
+
+
+
+<!-- toggle-button -->
+<div class="container mb-5">
+  <button [disabled]="edit" (click)="toggleAddInventory()" data-bs-toggle="modal" data-bs-target="#addInventory" class="btn btn-md btn-primary mt-5 toggleBtn">
+    {{toggleInventoryName}}
+  </button>
+</div>
+<!-- toggle-button-end -->
+
+
+
+
+
+<!-- add-inventory -->
+<div class="container my-5">
+  <div id="inventoryForm" class="w-50 p-5 card close align-center">
+      <div class="mx-auto w-100">
+        <div class="alert alert-danger animate__animated animate__zoomIn" *ngIf="error">
+          {{error}}
+          <div class="float-end alert-delete" (click)="removeAlert()"><i class="fa fa-times"></i></div>
+        </div>
+        <div class="alert alert-success " *ngIf="success">
+          {{success}}
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="">Date</label>
+        <input type="date" [(ngModel)]="inventoryDate" class="form-control" placeholder="Choose Date">
+      </div>
+      <div class="form-group">
+        <label for="">Inventory No</label>
+        <input type="number" [(ngModel)]="inventoryNumber"  class="form-control" placeholder="Enter inventory number">   
+      </div>
+      <div class="form-group">
+        <label for="">Items</label>
+        <input type="text" [(ngModel)]="inventoryGood"  class="form-control" placeholder="Enter good name"> 
+      </div>
+      <div class="form-group">
+        <label for="">Unit Cost</label>
+        <input type="number" [(ngModel)]="inventoryCost" class="form-control" placeholder="#Enter good cost">
+      </div>
+      <div class="form-group">
+        <label for="">Quantity in Store</label>
+        <input type="number" [(ngModel)]="inventoryQty" class="form-control" placeholder="Enter good quantity"> 
+      </div>
+      <input class="btn btn-primary" (click)="saveInventory()" type="submit" value="Save">
+    </div> 
+</div>
+<!-- add-inventory-- -->
+
+
+
+
+
+
+
+<!-- inventory-table-------- -->
+<div class="container mt-5 mb-3">
+  <div class="text-center text-muted">INVENTORY FOR THE MONTH OF MAY</div>
+  <table class="table table-striped shadow">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Date</th>
+        <th scope="col">Inventory No</th>
+        <th scope="col">Items</th>
+        <th scope="col">Unit Cost</th>
+        <th scope="col">Qty in store</th>
+        <th scope="col">Total</th>
+        <th scope="col">Qty issue(S)</th>
+        <th scope="col">Qty Remaining</th>
+        <th scope="col">Total Balance</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let data of inventory; let i = index">
+        <th scope="row">{{data.date}}</th>
+        <td>{{data.inventoryNumber}}</td>
+        <td>{{data.itemName}}</td>
+        <td>{{data.unitCost | currency:'NGN':'symbol-narrow' }}</td>
+        <td>{{data.quantity}}</td>
+        <td>{{(data.unitCost * data.quantity) | currency:'NGN':'symbol-narrow' }}</td>
+        <td>{{quantityFromSale[i]}}</td>
+        <td>{{data.quantity - quantityFromSale[i]}}</td>
+        <td>{{(data.unitCost * data.quantity) - (quantityFromSale[i] * data.unitCost) | currency:'NGN':'symbol-narrow' }}</td>
+        <td><button [disabled]="editBttn" (click)="editInventoryButton(data.inventoryNumber)" class="btn btn-info btn-sm mr-1"><i class="fas fa-pen"></i></button><button (click)="deleteInventory(data.inventoryNumber, i)" class="btn btn-danger btn-sm"><i class="fas fa-times"></i></button></td>
+      </tr>
+      <tr>
+        <th scope="row"></th>
+        <td></td>
+        <td>Opening Stock</td>
+        <td></td>
+        <td></td>
+        <th>{{openingStock | currency:'NGN':'symbol-narrow'}}</th>
+        <td>Closing Stock</td>
+        <td></td>
+        <th>{{closingStock | currency:'NGN':'symbol-narrow'}}</th>
+    </tbody>
+  </table>
+</div>
+<!-- inventory-table-end---- -->

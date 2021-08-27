@@ -1,5 +1,252 @@
-<div class="container  bg-info text-muted">
-  <p>template works!</p><br><p>let's crush it guys</p>
+<div class="bg_cont">
+  <!-- NAVBAR -->
+  <div class="text-white m-auto">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container ml-5 pl-5">
+        <img src="../../assets/img/3.png" alt="" style="width: 5%;">
+        <a class="navbar-brand" href="#">
+          <span class="fs-6">Easybooks</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+          aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav fs-6" style="margin-left: 600px;">
+            <a [routerLink]="['/']" routerLinkActive="router-link-active"
+              class="nav-link active hvr-underline-from-center p-3 mt-1" aria-current="page" href="/"><i
+                class="fa fa-home" aria-hidden="true"></i> Home</a>
+            <a [routerLink]="['/']" routerLinkActive="router-link-active"
+              class="nav-link  hvr-underline-from-center p-3 mt-1" aria-current="page" href="/"><i
+                class="fa fa-info-circle" aria-hidden="true"></i> About US</a>
+            <a [routerLink]="['/']" routerLinkActive="router-link-active"
+              class="nav-link  hvr-underline-from-center p-3 mt-1" aria-current="page" href="/"><i class="fa fa-asterisk"
+                aria-hidden="true"></i> Contact US</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <!-- NAVBAR -->
+  <!---------------------- Discount  -------------------------------->
+  <div class="container-fluid bg_offer" style="margin-top: 50px;">
+    <div class="d-flex pt-3 text-white" style="font-weight: 600;">
+      <small class="mx-5 pl-5 offer off d-none d-md-block">Limited Offer </small>
+      <p class="mx-3 fs-4">Great Bookkeeping App</p>
+      <img src="" class="mx-5 pl-5 pr-5 d-none d-md-block" alt="img">
+      <p class="mx-5 pl-5 fs-2 off">100 %<span style="font-weight: 400;" class="fs-4"> OFF</span> <br> <span style="font-weight: 400;" class="fs-6">for one Year</span> </p>
+      <a href="" class="bg-white shadow off rounded mx-5 text-center p-3" style="color: #F0A900; height: 50px; text-decoration: none;" >Buy Now and Save</a>
+      
+    </div>
+  </div>
+  <!---------------------- Discount  -------------------------------->
+  <div class="container mx-auto">
+    <div class="row mt-5">
+      <div class="col-12 col-md-6">
+        <div class="card w-75 p-3">
+          <h4 style="font-weight: 900;" class="mt-2">ACCOUNTING SOFTWARE FOR SMALL BUSSINESS</h4>
+          <h1 style="font-weight: bolder; font-size: 3rem;" class="mt-3">Bussiness and <br> <br> Accounting <br> <br> made Ease</h1>
+          <p style="color: grey;" class="mt-3">Track expenses, customers invoices, run reports and lot more, all in one place</p>
+          <button (click)="register()" class="btn p-2 w-50 text-white mt-4 hvr-icon-forward" style="background-color: #1d1648;">Start Free Trial <i class="fa fa-chevron-circle-right hvr-icon mx-3" aria-hidden="true"></i> </button>
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="card">
+          <!-- <img src="../../assets/img/Project_67-08-removebg-preview.png" alt=""> -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container mx-auto" style="margin-top: 200px;">
+    <div>
+      <h1 class="text-center fs-1">Our Awesome Features...</h1>
+      <div class="row mt-5 shift">
+        <div class="col-12 col-md-4 mt-2">
+          <div class="card shadow p-3 hvr-shrink hvr-bounce-to-top " style="width: 22rem; cursor: pointer;">
+            <img src="../../assets/img/00.png" class="card-img-top" style="height: 300px; margin-left: -20px;" alt="...">
+            <div class="card-body" style="margin-top: -100px;">
+              <h5 class="card-title mt-3 text-center fs-6 text-muted features" style="font-weight: 900;">Access anytime on any device</h5>
+              <p class="card-text text-center fs-5 text-muted p-3">Your data is stored in the cloud, allowing you to run your business from your Mac, PC, tablet or phone.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-4 mt-2">
+          <div class="card shadow p-3 hvr-shrink hvr-bounce-to-top " style="width: 22rem; cursor: pointer;">
+            <img src="../../assets/img/11.png" class="card-img-top" style="height: 500px; width: 500px; margin-top: -130px; margin-left: -80px;" alt="...">
+            <div class="card-body" style="margin-top: -170px;">
+              <h5 class="card-title mt-3 text-center fs-6 text-muted features" style="font-weight: 900;">Access anytime on any device</h5>
+              <p class="card-text text-center fs-5 text-muted p-3">Your data is stored in the cloud, allowing you to run your business from your Mac, PC, tablet or phone.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-4 mt-2">
+          <div class="card shadow p-3 hvr-shrink hvr-bounce-to-top " style="width: 22rem; cursor: pointer;">
+            <img src="../../assets/img/99.png" class="card-img-top" style="height: 500px; width: 500px; margin-top: -130px; margin-left: -80px;" alt="...">
+            <div class="card-body" style="margin-top: -170px;">
+              <h5 class="card-title mt-3 text-center fs-6 text-muted features" style="font-weight: 900;">Access anytime on any device</h5>
+              <p class="card-text text-center fs-5 text-muted p-3">Your data is stored in the cloud, allowing you to run your business from your Mac, PC, tablet or phone.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid bg_user mt-5 shadow">
+    <div class="mx-auto p-5 text-center text-white">
+      <p class="text-center text-white fs-1 mt-4" style="font-weight: 900;">Lorem, ipsum dolor sit amet consectetur adipisicing elit.  </p>
+      <button (click)="register()" class="mt-4 btn p-2 text-white hvr-icon-forward" style="background-color: #1d1648;">Start Free Trial <i class="fa fa-chevron-circle-right hvr-icon mx-3" aria-hidden="true"></i> </button>
+    </div>
+  </div>
+
+  <div class="container-fluid mx-auto mt-5 pt-5">
+    <p class="text-center fs-1">Run your Bussiness on your Own terms!</p>
+    <p class="text-center fs-6 mt-5">
+      <span class="mx-3 p-2 hvr-underline-from-center" (click)="showDashboard()" style="cursor: pointer;">Dashboard</span>
+      <span class="mx-3 p-2 hvr-underline-from-center" (click)='showInvoice()' style="cursor: pointer;">Sales</span>
+      <span class="mx-3 p-2 hvr-underline-from-center" (click)="showSale()" style="cursor: pointer;">Reports</span>
+
+      <div class="container-fluid mx-auto mt-5 bg-ligt" *ngIf="showDash">
+        <div class="row">
+          <div class="col-5 bg-light">
+            <p class="mt-5 p-5 fs-4" style="font-weight: 900;">Turn heads and open wallets</p>
+            <hr class="w-25 mx-5">
+            <p class="p-5">Create and send professional-looking invoices in seconds. Automated templates and schedules make getting paid even simpler.</p>
+          </div>
+          <div class="col-7 bg-light">
+            <img src="../../assets/img/accountDesktop.PNG" class="w-100 p-5" alt="">
+          </div>
+        </div>
+      </div>
+      
+      <div class="container-fluid mx-auto mt-5 bg-ligt" *ngIf="showInv">
+        <div class="row">
+          <div class="col-5 bg-light">
+            <p class="mt-5 p-5 fs-4" style="font-weight: 900;">Turn heads and open wallets</p>
+            <hr class="w-25 mx-5">
+            <p class="p-5">Create and send professional-looking invoices in seconds. Automated templates and schedules make getting paid even simpler!.</p>
+          </div>
+          <div class="col-7 bg-light">
+            <img src="../../assets/img/accountDesktop2.PNG" class="w-100 p-5" alt="">
+          </div>
+        </div>
+      </div>
+
+      <div class="container-fluid mx-auto mt-5 bg-ligt" *ngIf="showSales">
+        <div class="row">
+          <div class="col-5 bg-light">
+            <p class="mt-5 p-5 fs-4" style="font-weight: 900;">Turn heads and open wallets</p>
+            <hr class="w-25 mx-5">
+            <p class="p-5">Create and send professional-looking invoices in seconds. Automated templates and schedules make getting paid even simpler.</p>
+          </div>
+          <div class="col-7 bg-light">
+            <img src="../../assets/img/accountDesktop.PNG" class="w-100 p-5" alt="">
+          </div>
+        </div>
+      </div>
+  </div>
+  <!-- TEAM -->
+  <div class="container mx-auto mt-5 pt-5">
+    <p class="text-center fs-1">Meet out Team</p>
+    <div id="carouselExampleIndicators" class="carousel slide ml-5" data-bs-ride="carousel" data-bs-interval=500>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <div class="row">
+            <div class="col-3" style="cursor: pointer;">
+              <div class="flip-card mt-5 shadow">
+                <div class="flip-card-inner">
+                  <div class="flip-card-front">
+                    <img src="../../assets/img/avatar.png" alt="Avatar" style="width:250px;height:250px;">
+                    <p class="mt-3 fs-4">Lorem ipsum dolor</p>
+                  </div>
+                  <div class="flip-card-back">
+                    <h1 class="mt-5">John Doe</h1> 
+                    <p>Architect & Engineer</p> 
+                    <p>We love that guy</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-3" style="cursor: pointer;">
+              <div class="flip-card mt-5 shadow">
+                <div class="flip-card-inner">
+                  <div class="flip-card-front">
+                    <img src="../../assets/img/avatar.png" alt="Avatar" style="width:250px;height:250px;">
+                    <p class="mt-3 fs-4">Lorem ipsum dolor</p>
+                  </div>
+                  <div class="flip-card-back">
+                    <h1 class="mt-5">John Doe</h1> 
+                    <p>Architect & Engineer</p> 
+                    <p>We love that guy</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-3" style="cursor: pointer;">
+              <div class="flip-card mt-5 shadow">
+                <div class="flip-card-inner">
+                  <div class="flip-card-front">
+                    <img src="../../assets/img/avatar.png" alt="Avatar" style="width:250px;height:250px;">
+                    <p class="mt-3 fs-4">Lorem ipsum dolor</p>
+                  </div>
+                  <div class="flip-card-back">
+                    <h1 class="mt-5">John Doe</h1> 
+                    <p>Architect & Engineer</p> 
+                    <p>We love that guy</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-3" style="cursor: pointer;">
+              <div class="flip-card mt-5 shadow">
+                <div class="flip-card-inner">
+                  <div class="flip-card-front">
+                    <img src="../../assets/img/avatar.png" alt="Avatar" style="width:250px;height:250px;">
+                    <p class="mt-3 fs-4">Lorem ipsum dolor</p>
+                  </div>
+                  <div class="flip-card-back">
+                    <h1 class="mt-5">John Doe</h1> 
+                    <p>Architect & Engineer</p> 
+                    <p>We love that guy</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+<!-- TEAM -->
+
+  <footer class="mt-5 pt-5">
+    <div class="d-flex container text-white mx-auto pl-5" style="padding-top: 200px; padding-bottom: 150px;">
+      <div class="mx-5"> 
+        <h3>BookkeepingApp</h3>
+        <p>2021 BookkeepingApp Limited</p>
+        <span>ALl right reserve. Terms and conditions, features, support, pricing and service options <br> subject to change without notice</span>
+      </div>
+      <div class="mx-5">
+        <p>
+          <span>Legal</span> |
+          <span>Privacy</span> |
+          <span>Security</span>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <div class="container-fluid bg_user_1 shadow">
+    <div class="mx-auto p-5 text-center text-white d-flex">
+      <div class="fs-2 mt-3 mx-5"> 
+        See what Easybooks  can do for your business.
+      </div>
+      <div class="mt-3 mx-auto">
+        <button (click)="register()" class="btn p-2 text-white hvr-icon-forward" style="background-color: #1d1648;">Start Free Trial <i class="fa fa-chevron-circle-right hvr-icon mx-3" aria-hidden="true"></i> </button>
+      </div>
+    </div>
+  </div>
 </div>
-<br>
-<button mat-raised-button color='accent'>Sign Up</button>
